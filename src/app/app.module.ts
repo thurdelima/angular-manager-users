@@ -15,6 +15,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment.development';
+import { UsersComponent } from './pages/users/users.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { environment } from '../environments/environment.development';
     ButtonComponent,
     LoginComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
