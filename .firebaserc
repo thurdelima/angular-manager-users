@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "manager-users-a7fc4": {
+      "hosting": {
+        "manager-users": [
+          "manager-users-a7fc4"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "manager-users-a7fc4"
+  }
+}

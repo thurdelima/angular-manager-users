@@ -11,6 +11,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MatIconModule } from '@angular/material/icon'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { AngularFireModule } from '@angular/fire/compat';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from '../environments/environment.development';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     AppRoutingModule,
     FormsModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
 
   ],
   providers: [
