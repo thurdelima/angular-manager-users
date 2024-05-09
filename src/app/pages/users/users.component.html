@@ -1,4 +1,82 @@
 <app-menu></app-menu>
 
 
-<p>users works!</p>
+<div class="container-fluid pt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="title">Registry of users</h1>
+      <h2 class="subtitle">Manager users, adding, updating and excluding</h2>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-12">
+      <app-button class="float-end" textButton="+ register"></app-button>
+
+      <mat-form-field>
+        <mat-label>Search for users</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Type your search" #input>
+      </mat-form-field>
+
+      <table class="mat-elevation-z8" mat-table [dataSource]="dataSource" matSort>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th class="th-table" mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let user"> {{user.firebaseId}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th class="th-table" mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let user"> {{user.name}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="email">
+          <th class="th-table" mat-header-cell *matHeaderCellDef> E-mail </th>
+          <td class="td-table" mat-cell *matCellDef="let user"> {{user.email}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="role">
+          <th class="th-table" mat-header-cell *matHeaderCellDef>Role</th>
+          <td class="td-table" mat-cell *matCellDef="let user"> {{user.role}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="benefits">
+          <th class="th-table" mat-header-cell *matHeaderCellDef>Benefits</th>
+          <td class="td-table" mat-cell *matCellDef="let user">
+
+            @if (user.healthPlan || user.dentalPlan) {
+            <mat-icon class="c-primary">check</mat-icon>
+            }
+
+            @if (!user.healthPlan && !user.dentalPlan) {
+            <mat-icon class="c-error">remove</mat-icon>
+            }
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th class="th-table" mat-header-cell *matHeaderCellDef></th>
+          <td class="td-table" mat-cell *matCellDef="let user">
+            <mat-icon class="icone-tabela">visibility</mat-icon>
+            <mat-icon class="icone-tabela">edit</mat-icon>
+            <mat-icon class="icone-tabela">delete</mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell no-data" colspan="4">was not found data about this search: "{{input.value}}"</td>
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[3, 5, 7]" showFirstLastButtons aria-label="Select users per page">
+      </mat-paginator>
+    </div>
+  </div>
+</div>
