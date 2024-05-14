@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 import { AngularFireModule } from '@angular/fire/compat';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
@@ -22,6 +23,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
+import { ModalViewUserComponent } from './pages/users/modal-view-user/modal-view-user.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { MatSortModule } from '@angular/material/sort';
     LoginComponent,
     HomeComponent,
     MenuComponent,
-    UsersComponent
+    UsersComponent,
+    ModalViewUserComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatInputModule,
     MatTableModule,
     MatSortModule,
+    MatDialogModule,
     MatPaginatorModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
 

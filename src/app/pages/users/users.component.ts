@@ -5,6 +5,8 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { User } from '../../interfaces/user';
 import { MatTableDataSource } from '@angular/material/table';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalViewUserComponent } from './modal-view-user/modal-view-user.component';
 
 @Component({
   selector: 'app-users',
@@ -21,7 +23,7 @@ export class UsersComponent {
   @ViewChild(MatSort) sort: MatSort;
 
 
-  constructor(private userService: UsersService, private _liveAnnouncer: LiveAnnouncer) {
+  constructor(private userService: UsersService, private _liveAnnouncer: LiveAnnouncer, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource<any>(this.listusers);
   }
 
@@ -49,10 +51,7 @@ export class UsersComponent {
   }
 
   announceSortChange(sortState: Sort) {
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
+
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
     } else {
@@ -67,5 +66,13 @@ export class UsersComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  openModalViewUser(user: User) {
+    this.dialog.open(ModalViewUserComponent, {
+      width: '700px',
+      height: '330px',
+      data: user
+    })
   }
 }
