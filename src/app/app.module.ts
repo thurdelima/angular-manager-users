@@ -24,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { ModalViewUserComponent } from './pages/users/modal-view-user/modal-view-user.component';
+import { ModalFormUserComponent } from './pages/users/modal-form-user/modal-form-user.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ModalViewUserComponent } from './pages/users/modal-view-user/modal-view
     HomeComponent,
     MenuComponent,
     UsersComponent,
-    ModalViewUserComponent
+    ModalViewUserComponent,
+    ModalFormUserComponent
   ],
   imports: [
     BrowserModule,

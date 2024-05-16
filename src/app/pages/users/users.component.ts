@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalViewUserComponent } from './modal-view-user/modal-view-user.component';
+import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
 
 @Component({
   selector: 'app-users',
@@ -75,4 +76,14 @@ export class UsersComponent {
       data: user
     })
   }
+
+  openModalUser(user: User) {
+    this.dialog.open(ModalFormUserComponent, {
+      width: '700px',
+      height: '400px',
+
+    }).afterClosed().subscribe(() => this.getListUsers());
+  }
+
+
 }
