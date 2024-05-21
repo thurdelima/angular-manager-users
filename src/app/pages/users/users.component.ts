@@ -44,6 +44,7 @@ export class UsersComponent {
         this.dataSource = new MatTableDataSource<any>(this.listusers);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        //this.paginator._intl.itemsPerPageLabel="itens por pagina";
       },
       error: (err) => {
         console.error(err);
@@ -77,7 +78,7 @@ export class UsersComponent {
     })
   }
 
-  openModalUser(user: User) {
+  openModalAddUser() {
     this.dialog.open(ModalFormUserComponent, {
       width: '700px',
       height: '400px',

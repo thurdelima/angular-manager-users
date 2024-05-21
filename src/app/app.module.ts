@@ -6,14 +6,15 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ButtonComponent } from './components/button/button.component';
 import { LoginComponent } from './pages/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MatIconModule } from '@angular/material/icon'
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { AngularFireModule } from '@angular/fire/compat';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
@@ -41,7 +42,9 @@ import { ModalFormUserComponent } from './pages/users/modal-form-user/modal-form
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     MatIconModule,
+    MatSelectModule,
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
@@ -57,4 +60,7 @@ import { ModalFormUserComponent } from './pages/users/modal-form-user/modal-form
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+
+ }

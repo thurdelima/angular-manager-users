@@ -1,1 +1,74 @@
-<p>modal-form-user works!</p>
+<div class="container-fluid p-3">
+  <mat-icon class="float-end hover" (click)="closeModal()">close</mat-icon>
+
+  <h1 class="title">Register of user</h1>
+  <h2 class="subtitle">Fill the form to save user</h2>
+
+  <form class="row" [formGroup]="formUser">
+
+    <div class="col-12 col-md-6 mb-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput formControlName="name" placeholder="Type name">
+        @if (formUser.controls['name'].invalid) {
+        <mat-error>Please enter a valid name</mat-error>
+        }
+
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-6 mb-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>E-mail</mat-label>
+        <input type="email" matInput formControlName="email" placeholder="Type e-mail">
+        @if (formUser.controls['email'].invalid) {
+        <mat-error>Please enter a valid email</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-6 mb-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Sector</mat-label>
+        <input type="text" matInput formControlName="sector" placeholder="Type sector">
+        @if (formUser.controls['sector'].invalid) {
+        <mat-error>Please enter a valid sector</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-6 mb-2">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Role</mat-label>
+        <input type="text" matInput formControlName="role" placeholder="Type role">
+        @if (formUser.controls['role'].invalid) {
+        <mat-error>Please enter a valid role</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-6 mb-2">
+      <mat-form-field class="w-100">
+        <mat-label><mat-icon>favorite</mat-icon> Health Plan</mat-label>
+        <mat-select formControlName="healthPlan">
+          @for (plano of planosSaude; track plano) {
+          <mat-option [value]="plano.descricao">{{plano.descricao}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-12 col-md-6 mb-2">
+      <mat-form-field class="w-100">
+        <mat-label> <mat-icon>favorite</mat-icon> Dental Plan</mat-label>
+        <mat-select formControlName="dentalPlan">
+          <mat-option *ngFor="let planoO of planosOdonto" [value]="planoO.descricao">{{planoO.descricao}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-12">
+      <button class="botao-primario float-end" [disabled]="!formUser.valid" (click)="saveUser()">save user</button>
+    </div>
+
+  </form>
+
+</div>
