@@ -78,6 +78,15 @@ export class UsersComponent {
     })
   }
 
+  openModalEditUser(user: User){
+    this.dialog.open(ModalFormUserComponent, {
+      width: '700px',
+      height: '400px',
+      data: user
+
+    }).afterClosed().subscribe(() => this.getListUsers());
+  }
+
   openModalAddUser() {
     this.dialog.open(ModalFormUserComponent, {
       width: '700px',

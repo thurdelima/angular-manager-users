@@ -1,7 +1,8 @@
 <div class="container-fluid p-3">
   <mat-icon class="float-end hover" (click)="closeModal()">close</mat-icon>
 
-  <h1 class="title">Register of user</h1>
+  <h1 class="title" *ngIf="editUser">Edit User</h1>
+  <h1 class="title" *ngIf="!editUser">Register User</h1>
   <h2 class="subtitle">Fill the form to save user</h2>
 
   <form class="row" [formGroup]="formUser">
