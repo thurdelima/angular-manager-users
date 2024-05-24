@@ -95,5 +95,13 @@ export class UsersComponent {
     }).afterClosed().subscribe(() => this.getListUsers());
   }
 
+  deleteUser(firebaseId: string) {
+    this.userService.deleteUser(firebaseId).then(
+      (response: any) => {
+        window.alert('Usuário excluído com sucesso');
+      }
+    );
+  }
+
 
 }
