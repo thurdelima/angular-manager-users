@@ -2,6 +2,22 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
 
+## 🤷🤷  Manager users project
+Dashboard of users with paginate and list your role, dental and healthplan
+
+<div align="center" >
+  <img src="./manager_users.gif">
+</div>
+
+## ⚙️⚙️ Running locally
+
+```bash
+$ npm install
+
+$ ng serve or ng serve -o
+
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
